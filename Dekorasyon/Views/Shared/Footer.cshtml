@@ -1,0 +1,77 @@
+﻿@model List<SosyalMedya>
+@{
+    var mail = (List<Mail>)ViewBag.Mail;
+    var telefon = (List<Telefon>)ViewBag.Telefon;
+    var adres = (List<Adres>)ViewBag.Adres;
+}
+<footer class="site-footer footer-large  footer-dark	footer-wide">
+
+    <!-- FOOTER BLOCKES START -->
+    <div class="footer-top overlay-wraper bg-cover" style="background-image:url(images/background/f-bg.jpg)">
+        <div class="overlay-main sx-bg-secondry opacity-08"></div>
+        <div class="container">
+            <div class="row">
+                <!-- ABOUT COMPANY -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="widget widget_about">
+                        <!--<h4 class="widget-title">About Company</h4>-->
+                        <div class="logo-footer clearfix p-b15">
+                            <a href="index.html"><img src="images/logo-light.png" alt=""></a>
+                        </div>
+
+                        <ul class="social-icons  sx-social-links">
+                            @foreach (var item in Model)
+                            {
+                                <li><a href="@item.Instagram" target="_blank" class="fa fa-instagram"></a></li>
+                                <li><a href="@item.Twitter" target="_blank" class="fa fa-twitter"></a></li>
+                                <li><a href="@item.Facebook" target="_blank" class="fa fa-facebook"></a></li>
+                                <li><a href="@item.YouTube" target="_blank" class="fa fa-youtube"></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RESENT POST -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="widget widget_address_outer">
+                        <h5 class="widget-title">Çalışma Saatleri</h5>
+                        <ul class="widget_address">
+                            <li>Hatfa içi: 09:00-18:00</li>
+                            <li>Cumartesi: 10:00-15:00</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!-- USEFUL LINKS -->
+                <div class="col-lg-3 col-md-6 col-sm-6 footer-col-3">
+                    <div class="widget widget_services inline-links">
+                        <h5 class="widget-title">Yardımcı Linkler</h5>
+                        <ul>
+                            <li><a href="about-1.html">Hakkımızda</a></li>
+                            <li><a href="services-1.html">Hizmetler</a></li>
+                            <li><a href="project-grid.html">Projelerimiz</a></li>
+                            <li><a href="contact-1.html">İletişim</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CONTACT US -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="widget widget_address_outer">
+                        <h5 class="widget-title">İletişime geç</h5>
+                        <ul class="widget_address">
+                            <li>Türkiye Ankara </li>
+                            <li>Dekorsayon@gmail.com</li>
+                            <li>(0312)-9-31-31</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER COPYRIGHT -->
+</footer>

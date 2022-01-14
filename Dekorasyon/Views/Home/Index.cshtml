@@ -1,0 +1,118 @@
+﻿@model List<Slider>
+
+@{
+    var homepage = (List<HomePage>)ViewBag.HomePage;
+    var urunler = (List<Urun>)ViewBag.HomaPageUrun;
+    var hizmetler = (List<Hizmet>)ViewBag.HomaPageHizmet;
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@{Html.RenderAction("Slider", "Home"); }
+
+<!-- ABOUT COMPANY START -->
+<div class="section-full mobile-page-padding p-t80 p-b80 bg-gray">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                @foreach (var item in homepage)
+                {
+                    <div class="col-xl-5 col-lg-5 col-md-12 ">
+
+                        <div class="home-2-about bg-bottom-left bg-no-repeat bg-cover pt-10">
+                            <img src="~/kll-assets/image/anasayfa/@item.Gorsel" alt="@item.Baslik" />
+                        </div>
+                    </div>
+
+                    <div class="col-xl-7 col-lg-7 col-md-12">
+                        <div class="about-home-2">
+                            <h3 class="m-t0 sx-tilte">@item.Baslik</h3>
+                            <p>
+                                @item.Icerik
+                            </p>
+
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ABOUT COMPANY END -->
+<!-- WHAT WE DO END -->
+<!-- ALL PROJECTS START -->
+<div class="section-full  mobile-page-padding bg-white  p-t80 p-b80">
+
+    <div class="container">
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="sx-separator-outer separator-center">
+                <div class="sx-separator bg-white bg-moving bg-repeat-x" style="background-image:url(images/background/cross-line2.png)">
+                    <h3 class="sep-line-one">Ürünlerimiz</h3>
+                </div>
+            </div>
+        </div>
+        <!-- GALLERY CONTENT START -->
+        <ul class="masonry-outer mfp-gallery work-grid row clearfix list-unstyled m-b0">
+
+            @foreach (var item in urunler)
+            {
+                <li class="masonry-item cat-1 col-lg-4 col-md-6 col-sm-12 m-b30">
+                    <div class="sx-box   image-hover-block">
+                        <div class="sx-thum-bx">
+                            <img src="~/kll-assets/image/urun/@item.Gorsel" alt="">
+                        </div>
+                        <div class="sx-info  p-t20 text-white">
+                            <h4 class="sx-tilte"><a href="/@item.SEOLink">@item.Baslik</a></h4>
+                        </div>
+                        <a class="mfp-link" href="~/kll-assets/image/urun/@item.Gorsel">
+                            <i class="fa fa-arrows-alt"></i>
+                        </a>
+                    </div>
+                </li>
+            }
+
+        </ul>
+        <!-- GALLERY CONTENT END -->
+    </div>
+</div>
+<div class="section-full mobile-page-padding p-t80 bg-white bg-change-section">
+    <div class="container">
+        <!-- TITLE START -->
+        <div class="section-head">
+            <div class="sx-separator-outer separator-center">
+                <div class="sx-separator bg-white bg-moving bg-repeat-x" style="background-image:url(images/background/cross-line2.png)">
+                    <h3 class="sep-line-one">Hizmetler</h3>
+                </div>
+            </div>
+        </div>
+        <!-- TITLE END -->
+    </div>
+    <div class="owl-carousel service-slider owl-btn-vertical-center">
+        @foreach (var item in hizmetler)
+        {
+            <div class="item">
+                <div class="bgcall-block d-flex flex-wrap justify-content-center align-content-end bg-cover overlay-wraper" style="background-image:url(/kll-assets/image/hizmet/@item.Gorsel)">
+                    <div class="overlay-main bg-black opacity-05"></div>
+                    <div class="bg-content-mid-outer">
+                        <div class="bg-content-mid">
+                            <div class="sx-icon-box-wraper center   text-white">
+                                <div class="icon-lg m-b15">
+                                   
+                                </div>
+                                <div class="icon-content">
+                                    <h4 class="sx-tilte"> <a href="~/@item.SEOLink" class="sx-text-white">@item.Baslik</a></h4>
+                                </div>
+                            </div>
+                            <div class="bg-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

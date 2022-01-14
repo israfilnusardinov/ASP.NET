@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04c02c0b54ec4d18a747a85f40850187" Name="Diagram1">
+        <EntityTypeShape EntityType="DekorasyonWebModel.Adres" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.AltMenu" Width="1.5" PointX="10" PointY="5" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.CalismaSaatleri" Width="1.5" PointX="10" PointY="8.875" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Ekip" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.EkipGaleri" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Gunler" Width="1.5" PointX="7.75" PointY="9.125" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Haber" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.HaberGaleri" Width="1.5" PointX="12.25" PointY="1.5" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.HaberKategori" Width="1.5" PointX="7.75" PointY="1.5" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Hizmet" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.HizmetGaleri" Width="1.5" PointX="5.25" PointY="6.5" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.HizmetKategori" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.HomePage" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.IletisimForm" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Kullanici" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Log" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Mail" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Menu" Width="1.5" PointX="7.75" PointY="5" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Profil" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Slider" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.SosyalMedya" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Telefon" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.Urun" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.UrunGaleri" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="DekorasyonWebModel.UrunKategori" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_AltMenu_Menu" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_CalismaSaatleri_Gunler" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_Haber_HaberKategori" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_HaberGaleri_Haber" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_Hizmet_HizmetKategori" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_HizmetGaleri_Hizmet" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_Urun_UrunKategori" />
+        <AssociationConnector Association="DekorasyonWebModel.FK_UrunGaleri_Urun" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+﻿@model Hizmet
+@{
+    ViewBag.Title = "HizmetDetay";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="page-wraper">
+    <div class="page-content">
+        <!-- INNER PAGE BANNER -->
+        <div class="sx-bnr-inr overlay-wraper bg-parallax bg-top-center" data-stellar-background-ratio="0.5" style="background-image:url(images/banner/2.jpg);">
+            <div class="overlay-main bg-black opacity-07"></div>
+            <div class="container">
+                <div class="sx-bnr-inr-entry">
+                    <!-- BREADCRUMB ROW -->
+
+                    <div>
+                        <ul class="sx-breadcrumb breadcrumb-style-2">
+                            <li><a href="~/">Anasayfa</a></li>
+                            <li>@Model.Baslik</li>
+                        </ul>
+                    </div>
+
+                    <!-- BREADCRUMB ROW END -->
+                </div>
+            </div>
+        </div>
+        <!-- INNER PAGE BANNER END -->
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-tb80 inner-page-padding stick_in_parent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7  sticky_column">
+                        <div class="project-detail-containt">
+                            <div class="bg-white text-black">
+                                <h3>@Model.Baslik</h3>
+                                <p>@Model.Icerik</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-5 ">
+                        <div class="project-detail-outer">
+                            <div class="project-detail-pic m-b30">
+                                <div class="sx-media">
+                                    <img src="~/kll-assets/image/hizmet/@Model.Gorsel" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+    </div>
+</div>

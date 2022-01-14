@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DekorasyonWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DekorasyonWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adres" EntityType="DekorasyonWebModel.Adres" />
+    <EntitySet Name="AltMenu" EntityType="DekorasyonWebModel.AltMenu" />
+    <EntitySet Name="CalismaSaatleri" EntityType="DekorasyonWebModel.CalismaSaatleri" />
+    <EntitySet Name="Ekip" EntityType="DekorasyonWebModel.Ekip" />
+    <EntitySet Name="EkipGaleri" EntityType="DekorasyonWebModel.EkipGaleri" />
+    <EntitySet Name="Gunler" EntityType="DekorasyonWebModel.Gunler" />
+    <EntitySet Name="Haber" EntityType="DekorasyonWebModel.Haber" />
+    <EntitySet Name="HaberGaleri" EntityType="DekorasyonWebModel.HaberGaleri" />
+    <EntitySet Name="HaberKategori" EntityType="DekorasyonWebModel.HaberKategori" />
+    <EntitySet Name="Hizmet" EntityType="DekorasyonWebModel.Hizmet" />
+    <EntitySet Name="HizmetGaleri" EntityType="DekorasyonWebModel.HizmetGaleri" />
+    <EntitySet Name="HizmetKategori" EntityType="DekorasyonWebModel.HizmetKategori" />
+    <EntitySet Name="HomePage" EntityType="DekorasyonWebModel.HomePage" />
+    <EntitySet Name="IletisimForm" EntityType="DekorasyonWebModel.IletisimForm" />
+    <EntitySet Name="Kullanici" EntityType="DekorasyonWebModel.Kullanici" />
+    <EntitySet Name="Log" EntityType="DekorasyonWebModel.Log" />
+    <EntitySet Name="Mail" EntityType="DekorasyonWebModel.Mail" />
+    <EntitySet Name="Menu" EntityType="DekorasyonWebModel.Menu" />
+    <EntitySet Name="Profil" EntityType="DekorasyonWebModel.Profil" />
+    <EntitySet Name="Slider" EntityType="DekorasyonWebModel.Slider" />
+    <EntitySet Name="SosyalMedya" EntityType="DekorasyonWebModel.SosyalMedya" />
+    <EntitySet Name="Telefon" EntityType="DekorasyonWebModel.Telefon" />
+    <EntitySet Name="Urun" EntityType="DekorasyonWebModel.Urun" />
+    <EntitySet Name="UrunGaleri" EntityType="DekorasyonWebModel.UrunGaleri" />
+    <EntitySet Name="UrunKategori" EntityType="DekorasyonWebModel.UrunKategori" />
+    <AssociationSet Name="FK_AltMenu_Menu" Association="DekorasyonWebModel.FK_AltMenu_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="AltMenu" EntitySet="AltMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CalismaSaatleri_Gunler" Association="DekorasyonWebModel.FK_CalismaSaatleri_Gunler">
+      <End Role="Gunler" EntitySet="Gunler" />
+      <End Role="CalismaSaatleri" EntitySet="CalismaSaatleri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Haber_HaberKategori" Association="DekorasyonWebModel.FK_Haber_HaberKategori">
+      <End Role="HaberKategori" EntitySet="HaberKategori" />
+      <End Role="Haber" EntitySet="Haber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HaberGaleri_Haber" Association="DekorasyonWebModel.FK_HaberGaleri_Haber">
+      <End Role="Haber" EntitySet="Haber" />
+      <End Role="HaberGaleri" EntitySet="HaberGaleri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hizmet_HizmetKategori" Association="DekorasyonWebModel.FK_Hizmet_HizmetKategori">
+      <End Role="HizmetKategori" EntitySet="HizmetKategori" />
+      <End Role="Hizmet" EntitySet="Hizmet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HizmetGaleri_Hizmet" Association="DekorasyonWebModel.FK_HizmetGaleri_Hizmet">
+      <End Role="Hizmet" EntitySet="Hizmet" />
+      <End Role="HizmetGaleri" EntitySet="HizmetGaleri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_UrunKategori" Association="DekorasyonWebModel.FK_Urun_UrunKategori">
+      <End Role="UrunKategori" EntitySet="UrunKategori" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunGaleri_Urun" Association="DekorasyonWebModel.FK_UrunGaleri_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunGaleri" EntitySet="UrunGaleri" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Adres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adresler" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tanım" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AltMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="DekorasyonWebModel.FK_AltMenu_Menu" FromRole="AltMenu" ToRole="Menu" />
+  </EntityType>
+  <EntityType Name="CalismaSaatleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AcilisSaat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KapanisSaat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GunId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gunler" Relationship="DekorasyonWebModel.FK_CalismaSaatleri_Gunler" FromRole="CalismaSaatleri" ToRole="Gunler" />
+  </EntityType>
+  <EntityType Name="Ekip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unvan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Icerik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EkipGaleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EkipId" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Gunler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gunler1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CalismaSaatleri" Relationship="DekorasyonWebModel.FK_CalismaSaatleri_Gunler" FromRole="Gunler" ToRole="CalismaSaatleri" />
+  </EntityType>
+  <EntityType Name="Haber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Icerik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HaberKategoriId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HaberKategori" Relationship="DekorasyonWebModel.FK_Haber_HaberKategori" FromRole="Haber" ToRole="HaberKategori" />
+    <NavigationProperty Name="HaberGaleri" Relationship="DekorasyonWebModel.FK_HaberGaleri_Haber" FromRole="Haber" ToRole="HaberGaleri" />
+  </EntityType>
+  <EntityType Name="HaberGaleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HaberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Haber" Relationship="DekorasyonWebModel.FK_HaberGaleri_Haber" FromRole="HaberGaleri" ToRole="Haber" />
+  </EntityType>
+  <EntityType Name="HaberKategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Haber" Relationship="DekorasyonWebModel.FK_Haber_HaberKategori" FromRole="HaberKategori" ToRole="Haber" />
+  </EntityType>
+  <EntityType Name="Hizmet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="Icerik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetKategoriId" Type="Int32" />
+    <NavigationProperty Name="HizmetKategori" Relationship="DekorasyonWebModel.FK_Hizmet_HizmetKategori" FromRole="Hizmet" ToRole="HizmetKategori" />
+    <NavigationProperty Name="HizmetGaleri" Relationship="DekorasyonWebModel.FK_HizmetGaleri_Hizmet" FromRole="Hizmet" ToRole="HizmetGaleri" />
+  </EntityType>
+  <EntityType Name="HizmetGaleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hizmet" Relationship="DekorasyonWebModel.FK_HizmetGaleri_Hizmet" FromRole="HizmetGaleri" ToRole="Hizmet" />
+  </EntityType>
+  <EntityType Name="HizmetKategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hizmet" Relationship="DekorasyonWebModel.FK_Hizmet_HizmetKategori" FromRole="HizmetKategori" ToRole="Hizmet" />
+  </EntityType>
+  <EntityType Name="HomePage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icerik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IletisimForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Konu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Icerik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Mail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mailler" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tanım" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AltMenu" Relationship="DekorasyonWebModel.FK_AltMenu_Menu" FromRole="Menu" ToRole="AltMenu" />
+  </EntityType>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Unvan" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AtlBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SosyalMedya">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YouTube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Telefon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TelefonNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tanım" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEOLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" />
+    <Property Name="Durum" Type="Int32" />
+    <Property Name="Hit" Type="Int32" Nullable="false" />
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UrunKategori" Relationship="DekorasyonWebModel.FK_Urun_UrunKategori" FromRole="Urun" ToRole="UrunKategori" />
+    <NavigationProperty Name="UrunGaleri" Relationship="DekorasyonWebModel.FK_UrunGaleri_Urun" FromRole="Urun" ToRole="UrunGaleri" />
+  </EntityType>
+  <EntityType Name="UrunGaleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="SiraNo" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Urun" Relationship="DekorasyonWebModel.FK_UrunGaleri_Urun" FromRole="UrunGaleri" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="UrunKategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiraNo" Type="Int32" />
+    <Property Name="Durum" Type="Int32" />
+    <Property Name="SEOLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Urun" Relationship="DekorasyonWebModel.FK_Urun_UrunKategori" FromRole="UrunKategori" ToRole="Urun" />
+  </EntityType>
+  <Association Name="FK_AltMenu_Menu">
+    <End Type="DekorasyonWebModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.AltMenu" Role="AltMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AltMenu">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CalismaSaatleri_Gunler">
+    <End Type="DekorasyonWebModel.Gunler" Role="Gunler" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.CalismaSaatleri" Role="CalismaSaatleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gunler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CalismaSaatleri">
+        <PropertyRef Name="GunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Haber_HaberKategori">
+    <End Type="DekorasyonWebModel.HaberKategori" Role="HaberKategori" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.Haber" Role="Haber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HaberKategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Haber">
+        <PropertyRef Name="HaberKategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HaberGaleri_Haber">
+    <End Type="DekorasyonWebModel.Haber" Role="Haber" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.HaberGaleri" Role="HaberGaleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HaberGaleri">
+        <PropertyRef Name="HaberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hizmet_HizmetKategori">
+    <End Type="DekorasyonWebModel.HizmetKategori" Role="HizmetKategori" Multiplicity="0..1" />
+    <End Type="DekorasyonWebModel.Hizmet" Role="Hizmet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HizmetKategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hizmet">
+        <PropertyRef Name="HizmetKategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HizmetGaleri_Hizmet">
+    <End Type="DekorasyonWebModel.Hizmet" Role="Hizmet" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.HizmetGaleri" Role="HizmetGaleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hizmet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HizmetGaleri">
+        <PropertyRef Name="HizmetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_UrunKategori">
+    <End Type="DekorasyonWebModel.UrunKategori" Role="UrunKategori" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.Urun" Role="Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UrunKategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunGaleri_Urun">
+    <End Type="DekorasyonWebModel.Urun" Role="Urun" Multiplicity="1" />
+    <End Type="DekorasyonWebModel.UrunGaleri" Role="UrunGaleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UrunGaleri">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

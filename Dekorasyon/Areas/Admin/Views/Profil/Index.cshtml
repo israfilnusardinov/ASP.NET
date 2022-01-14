@@ -1,0 +1,89 @@
+﻿@model List<Profil>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<div class="container">
+    <div class="card card-custom">
+        <div class="card-header">
+            <div class="card-title">
+                <span class="card-icon">
+                </span>
+                <h3 class="card-label">
+                    Bu sayfada Profilinizi Düzenleyebilirsiniz
+                    @if (Model.Count == 0)
+                    {
+                        <a href="~/Admin/Profil/Detay" class="btn btn-success">Yeni Profil</a>
+                    }
+                </h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
+                    <thead>
+                        <tr>
+                            <th>Seç</th>
+                            <th>Ünvan</th>
+                            <th style="width:30px !important;">Düzenle</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th style="width:64px">
+                                <button class="btn btn-danger">Sil</button>
+                            </th>
+                            <th>
+                                <input type="text" id="input-table-search-date" onkeyup="searchTable('input-table-search-date', 1)" placeholder="Haber Adı ile Ara" class="form-control form-control-sm form-filter datatable-input">
+                            </th>
+                            <th style="width:30px !important;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="a-center ">
+                                    <input type="checkbox" id="cbSec" class="flat" id="cbSec" name="cbSec" value="@item.Id">
+                                </td>
+                                <td>@item.Unvan</td>
+                                <td style="text-align:center">
+                                    <a href="~/Admin/Profil/Detay/@item.Id">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchTable(inputId, columnIndex) {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById(inputId);
+        filter = input.value.toUpperCase();
+        table = document.getElementById("kt_datatable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[columnIndex];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+

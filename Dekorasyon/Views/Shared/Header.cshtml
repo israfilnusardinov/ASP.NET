@@ -1,0 +1,141 @@
+﻿@model List<Menu>
+@{
+    var altmenu = (List<AltMenu>)ViewBag.AltMenu;
+    var hizmetkategori = (List<HizmetKategori>)ViewBag.HizmetKategori;
+    var urunkategori = (List<UrunKategori>)ViewBag.UrunKategori;
+    var sosyalmedya = (List<SosyalMedya>)ViewBag.SosyalMedya;
+    var mail = (List<Mail>)ViewBag.Mail;
+    var telefon = (List<Telefon>)ViewBag.Telefon;
+}
+<header class="site-header nav-wide nav-transparent">
+    <div class="top-bar sx-bg-secondry">
+        <div class="container">
+            <div class="d-flex justify-content-between ">
+                <ul class="list-unstyled e-p-bx text-white">
+                    @foreach (var item in mail)
+                    {
+                        <li><span>Mail:</span>@item.Mailler</li>
+                    }
+                    @foreach (var item in telefon)
+                    {
+                        <li><span>Bizi Arayın:</span>@item.TelefonNo</li>
+                    }
+                </ul>
+                <ul class="list-unstyled social-bx text-white d-flex flex-wrap align-content-center">
+                    @foreach (var item in sosyalmedya)
+                    {
+                        <li><a href="@item.Instagram" target="_blank" class="fa fa-instagram"></a></li>
+                        <li><a href="@item.Twitter" target="_blank" class="fa fa-twitter"></a></li>
+                        <li><a href="@item.Facebook" target="_blank" class="fa fa-facebook"></a></li>
+                        <li><a href="@item.YouTube" target="_blank" class="fa fa-youtube"></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+        <div class="main-bar">
+
+            <div class="container clearfix">
+                <div class="logo-header">
+                    <div class="logo-header-inner logo-header-one">
+                        <a href="~/">
+                            <img src="images/logo-light.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <!-- NAV Toggle Button -->
+                <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- EXTRA NAV -->
+                <!-- EXTRA Nav -->
+                <!-- MAIN NAVIGATION -->
+                <div class="header-nav nav-dark navbar-collapse collapse justify-content-center collapse">
+                    <ul class=" nav navbar-nav">
+                        <li class="active">
+                            <a href="~/">Anasayfa</a>
+
+                        </li>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.AltMenu.Count == 0)
+                            {
+                                <li class="">
+                                    <a href="~/@item.SEOLink">@item.Baslik</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="javascript:;">@item.Baslik</a>
+                                    <ul class="sub-menu">
+                                        @foreach (var itemAltmenu in altmenu)
+                                        {
+                                            if (itemAltmenu.MenuId == item.Id)
+                                            {
+                                                <li><a href="~/@itemAltmenu.SEOLink">@itemAltmenu.Baslik</a></li>
+                                            }
+                                        }
+
+                                    </ul>
+                                </li>
+                            }
+                        }
+
+                        <li>
+                            @if (urunkategori.Count != 0)
+                            {
+                                <a href="javascript:;">Ürünlerimiz</a>
+                            }
+                            <ul class="sub-menu">
+                                @foreach (var itemUrunKategori in urunkategori)
+                                {
+                                    <li><a href="~/@itemUrunKategori.SEOLink">@itemUrunKategori.Baslik</a></li>
+                                }
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            @if (hizmetkategori.Count != 0)
+                            {
+                                <a href="javascript:;">Hizmetlerimiz</a>
+                            }
+                            <ul class="sub-menu">
+                                @foreach (var itemHizmetKategori in hizmetkategori)
+                                {
+                                    <li><a href="~/@itemHizmetKategori.SEOLink">@itemHizmetKategori.Baslik</a></li>
+                                }
+
+                            </ul>
+                        </li>
+
+
+                        <li><a href="~/Iletisim">İletişim</a></li>
+
+                    </ul>
+                </div>
+
+
+                <!-- SITE SEARCH -->
+                <div id="search">
+                    <span class="close"></span>
+                    <form role="search" id="searchform" action="http://7xtheme.com/search" method="get" class="radius-xl">
+                        <div class="input-group">
+                            <input value="" name="q" type="search" placeholder="Type to search" />
+                            <span class="input-group-btn"><button type="button" class="search-btn"><i class="fa fa-search arrow-animation"></i></button></span>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</header>
